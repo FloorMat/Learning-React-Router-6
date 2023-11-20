@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes } from "react-router-dom"
+import { BrowserRouter, Routes } from 'react-router-dom';
+
 
 /**
  * Challenge: set up the BrowserRouter and Routes!
@@ -8,6 +9,8 @@ import { BrowserRouter, Routes } from "react-router-dom"
  */
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <Routes></Routes>
+    <Routes>
+
+    </Routes>
   </BrowserRouter>
-)
+);
