@@ -16,7 +16,27 @@ import React from "react"
 
 
 export default function Vans() {
+
+    const [vans, setVans] = React.useState([])
+
+    React.useEffect(()=> {
+        fetch("/api/vans").then(res => res.json()).then(data => setVans(data.vans))
+    },[])
+
+    let vansElement = vans.map(van => {
+        return (
+            <div>
+                <h1>{van.name}</h1>
+                <h2>{van.price}</h2>
+                <h4>{van.description}</h4>
+                <br/>
+            </div>
+        )
+    })
+
     return (
-        <h1>Vans page goes here 🚐</h1>
+        <div>
+            {vansElement}
+        </div>
     )
 }
