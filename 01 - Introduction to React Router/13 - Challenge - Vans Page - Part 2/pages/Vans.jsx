@@ -29,6 +29,8 @@ export default function Vans() {
                 <h1>{van.name}</h1>
                 <h2>{van.price}</h2>
                 <h4>{van.description}</h4>
+                <img src={van.imageUrl}></img>
+                <h4>{van.type}</h4>
                 <br/>
             </div>
         )

@@ -1,11 +1,11 @@
 1. What is a route/url parameter?
-
+Its sort of like a placeholder/input within the route path of our route that will take you to a specific page based on the variables put in
 
 ------------
 2. Add a route parameter called `productId` to the Route path below:
 
 
-<Route path="/products" element={<ProductDetail />} />
+<Route path="/products/:productId" element={<ProductDetail />} />
 
 
 ------------
@@ -14,5 +14,6 @@
 
 
 function ProductDetail() {
-    return <h1>Product detail page goes here</h1>
+    const param = useParam()
+    return <h1>{param.productId}</h1>
 }

@@ -11,5 +11,8 @@ export default function VanDetail() {
      * 
      * Hint: the endpoint is a GET request to `/api/vans/:vanid`
      */
+    React.useEffect(()=>{
+        fetch(`/api/vans/${params.id}`).then(res => res.json()).then(data => console.log(data))
+    },[params.id])
     return <h1>Van detail page goes here</h1>
 }

@@ -31,9 +31,10 @@ function App() {
           
           2. See if you can figure out why it did what it did.
           */}
-          <Route path="/host" element={<Dashboard />} />
-          <Route path="/host/income" element={<Income />} />
-          <Route path="/host/reviews" element={<Reviews />} />
+          <Route path="/host" element={<Dashboard />} >
+            <Route path="/host/income" element={<Income />} />
+            <Route path="/host/reviews" element={<Reviews />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
