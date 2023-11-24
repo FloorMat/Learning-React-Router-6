@@ -19,7 +19,9 @@ export default function Vans() {
      * or "rugged" into the search param in the URL to check your work.
      */
 
-    const vanElements = vans.map(van => (
+    const displayedVans = typeFilter ? vans.filter(van => van.type === typeFilter) : vans
+
+    const vanElements = displayedVans.map(van => (
         <div key={van.id} className="van-tile">
             <Link to={`/vans/${van.id}`}>
                 <img alt={van.name} src={van.imageUrl} />

@@ -12,19 +12,21 @@ const swCharacters = [
 function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const typeFilter = searchParams.get("type")
+
+  const displayedCharacters = typeFilter ? swCharacters.filter(char => char.type.toLowerCase() === typeFilter) : swCharacters
   
-  const charEls = swCharacters
-    .map(char => (
-      <div key={char.name}>
-        <h3
-          style={{ color: char.type.toLowerCase() === "jedi" ? "blue" : "red" }}
-        >
-          Name: {char.name}
-        </h3>
-        <p>Type: {char.type}</p>
-        <hr />
-      </div>
-    ))
+  const charEls = displayedCharacters
+    .map(char => {
+        return (<div key={char.name}>
+          <h3
+            style={{ color: char.type.toLowerCase() === "jedi" ? "blue" : "red" }}
+          >
+            Name: {char.name}
+          </h3>
+          <p>Type: {char.type}</p>
+          <hr />
+        </div>)
+  })
 
   return (
     <main>
