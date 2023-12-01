@@ -14,6 +14,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     path="/"
     element={<HomePage />}
     loader={homePageLoader}
+    errorElement={<h1>There was an error!</h1>}
   />
 ))
 

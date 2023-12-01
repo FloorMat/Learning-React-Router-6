@@ -1,10 +1,13 @@
 import React from "react"
-import { Outlet } from "react-router-dom"
+import { Outlet, Navigate } from "react-router-dom"
 
 export default function AuthRequired() {
-    // Fake auth
-    // If the user is not logged in
-        // Redirect them to the /login route
-    // Otherwise:
+    const isLoggedIn = false
+    if(!isLoggedIn){
+        return (
+            <Navigate to="/login" />
+        )
+    }
+
     return <Outlet />
 }

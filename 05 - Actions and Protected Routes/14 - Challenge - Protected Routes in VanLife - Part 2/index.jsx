@@ -5,7 +5,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  Link
+  Link,
+  redirect
 } from "react-router-dom"
 import Home from "./pages/Home"
 import About from "./pages/About"
@@ -24,6 +25,7 @@ import Login from "./pages/Login"
 import Layout from "./components/Layout"
 import HostLayout from "./components/HostLayout"
 import Error from "./components/Error"
+import { requireAuth } from './utils';
 
 import "./server"
 
@@ -58,6 +60,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         index
         element={<Dashboard />}
         loader={async () => {
+          await requireAuth()
           return null
         }}
       />
@@ -65,6 +68,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         path="income"
         element={<Income />}
         loader={async () => {
+          await requireAuth()
           return null
         }}
       />
@@ -72,6 +76,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         path="reviews"
         element={<Reviews />}
         loader={async () => {
+          await requireAuth()
           return null
         }}
       />
@@ -89,6 +94,7 @@ const router = createBrowserRouter(createRoutesFromElements(
           index
           element={<HostVanInfo />}
           loader={async () => {
+            await requireAuth()
             return null
           }}
         />
@@ -96,6 +102,7 @@ const router = createBrowserRouter(createRoutesFromElements(
           path="pricing"
           element={<HostVanPricing />}
           loader={async () => {
+            await requireAuth()
             return null
           }}
         />
@@ -103,6 +110,7 @@ const router = createBrowserRouter(createRoutesFromElements(
           path="photos"
           element={<HostVanPhotos />}
           loader={async () => {
+            await requireAuth()
             return null
           }}
         />

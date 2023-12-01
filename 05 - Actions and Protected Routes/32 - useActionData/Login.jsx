@@ -1,5 +1,5 @@
 import React from "react"
-import { Form } from "react-router-dom"
+import { Form, useActionData } from "react-router-dom"
 
 async function fakeLoginUser(creds) {
     if (creds.email === "b@b.com" && creds.password === "p123") {
@@ -12,12 +12,15 @@ export async function action({ request }) {
     const formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
+    return "Couldnt log in"
 }
 
 export default function Login() {
+    const error = useActionData()
     return (
         <Form method="post" replace>
             <h2>Login</h2>
+            {error && <h4 className="red">{error}</h4>}
             <input
                 type="email"
                 name="email"

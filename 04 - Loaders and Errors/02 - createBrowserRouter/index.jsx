@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Link, useSearchParams } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, createRoutesFromElements, Routes, Route, Link, useSearchParams } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -10,13 +10,13 @@ function HomePage() {
   );
 }
 
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path="/" element={<HomePage />} />
+))
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={router} />
   )
 }
 

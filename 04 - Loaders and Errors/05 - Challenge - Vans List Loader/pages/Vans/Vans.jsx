@@ -11,6 +11,10 @@ import { getVans } from "../../api"
  *    this page.
  */
 
+export function loader(){
+    return "Van data goes here"
+}
+
 export default function Vans() {
     const [searchParams, setSearchParams] = useSearchParams()
     const [vans, setVans] = React.useState([])

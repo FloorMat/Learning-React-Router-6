@@ -13,18 +13,20 @@ export default function Weather() {
     return (
         <section className="weather-container">
             <h1>Weather in Salt Lake City</h1>
-            <Await resolve={loaderData.weather}>
-                {(loadedWeather) => {
-                    const iconUrl =
+            <React.Suspense fallback={<h2>Loading...</h2>}>
+                <Await resolve={loaderData.weather}>
+                    {(loadedWeather) => {
+                        const iconUrl =
                         `http://openweathermap.org/img/wn/${loadedWeather.weather[0].icon}@2x.png`
-                    return (
-                        <>
-                            <h3>{loadedWeather.main.temp}ºF</h3>
-                            <img src={iconUrl} />
-                        </>
-                    )
-                }}
-            </Await>
+                        return (
+                            <>
+                                <h3>{loadedWeather.main.temp}ºF</h3>
+                                <img src={iconUrl} />
+                            </>
+                        )
+                    }}
+                </Await>
+            </React.Suspense>
         </section>
     )
 }

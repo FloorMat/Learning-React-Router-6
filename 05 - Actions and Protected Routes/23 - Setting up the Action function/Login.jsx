@@ -1,9 +1,14 @@
 import React from "react"
 import { useNavigate, Form } from "react-router-dom"
 
+export async function action(){
+    console.log("iM THE ACTION FUNCTION!!!")
+    return null
+}
+
 export default function Login() {
     return (
-        <Form>
+        <Form method="post">
             <input
                 type="email"
                 name="email"

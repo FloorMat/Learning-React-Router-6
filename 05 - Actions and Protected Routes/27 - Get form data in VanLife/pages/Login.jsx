@@ -16,8 +16,12 @@ export function loader({ request }) {
  * For now, just log the data to the console.
  */
 
-export async function action() {
-    console.log("Action function")
+export async function action({request}) {
+    const formData = await request.formData()
+    console.log(formData)
+    const email = formData.get("email")
+    const password = formData.get("password")
+    console.log(email, password)
     return null
 }
 

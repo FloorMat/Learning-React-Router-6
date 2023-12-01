@@ -24,13 +24,21 @@ const router = createBrowserRouter(createRoutesFromElements(
       path="protected"
       element={<h1>Super secret info here</h1>}
       loader={async () => {
-        const isLoggedIn = false
-        if(!isLoggedIn) {
-          throw redirect("/login")
-        }
+        const rand = Math.random() * 2
+        setTimeout(() => {
+          console.log("Protect")
+        }, rand)
         return null
       }}
-    />
+    >
+      <Route path="nested" element={<h1>Nested protected route</h1>} loader={async () => {
+        const rand = Math.random() * 2
+        setTimeout(() => {
+          console.log("Nested")
+        }, rand)
+        return null
+      }}/>
+    </Route>
     <Route path="login" element={<h1>Login page goes here</h1>} />
 
   </Route>

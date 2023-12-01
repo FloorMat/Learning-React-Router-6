@@ -26,7 +26,7 @@ import HostLayout from "./components/HostLayout"
 import Error from "./components/Error"
 import { requireAuth } from "./utils"
 
-import "./server"
+// import "./server"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>

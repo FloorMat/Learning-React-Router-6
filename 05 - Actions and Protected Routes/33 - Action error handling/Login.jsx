@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, useActionData } from "react-router-dom"
+import { Form, useActionData, redirect } from "react-router-dom"
 
 async function fakeLoginUser(creds) {
     if (creds.email === "b@b.com" && creds.password === "p123") {
@@ -23,7 +23,13 @@ export async function action({ request }) {
     const formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
-    // ??
+    try{
+        const user = await fakeLoginUser({email, password})
+        return redirect("/protected")
+    } catch(error){
+        console.log(error)
+        return error
+    }
 }
 
 export default function Login() {
@@ -31,7 +37,7 @@ export default function Login() {
     return (
         <Form method="post" replace>
             <h2>Login</h2>
-            {error && <h4 className="red">{error}</h4>}
+            {error && <h4 className="red">{error.message}</h4>}
             <input
                 type="email"
                 name="email"
